@@ -11,6 +11,8 @@ export class Game {
         });
     }
 
+    render(context) {}
+
     resize(width, height) {
         this.canvas.width = width;
         this.canvas.height = height;
