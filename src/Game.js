@@ -6,6 +6,9 @@ export class Game {
         this.height = this.canvas.height;
         this.start();
 
+        this.enemyPool = [];
+        this.numberOfenemies = 50;
+
         window.addEventListener('resize', e => {
             this.resize(e.target.innerWidth,
                 e.target.innerHeight);
