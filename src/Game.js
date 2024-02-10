@@ -1,3 +1,5 @@
+import { Enemy } from "./Enemy/Enemy.js";
+
 export class Game {
     constructor(canvas, ctx) {
         this.canvas = canvas;
@@ -29,5 +31,11 @@ export class Game {
         this.width = width;
         this.height = height;
         this.ctx.fillStyle = 'green';
+    }
+
+    createEnemyPool() {
+        for (let i = 0; i < this.numberOfEnemies; i++) {
+            this.enemyPool.push(new Enemy(this));
+        }
     }
 }
