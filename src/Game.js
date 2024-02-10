@@ -16,5 +16,6 @@ export class Game {
         this.canvas.height = height;
         this.width = width;
         this.height = height;
+        this.ctx.fillStyle = 'green';
     }
 }
