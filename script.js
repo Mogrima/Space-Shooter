@@ -8,5 +8,5 @@ window.addEventListener('load', function() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const game = new Game(canvas);
+    const game = new Game(canvas, ctx);
 });
