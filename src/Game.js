@@ -14,9 +14,20 @@ export class Game {
         this.enemyTimer = 0;
         this.enemyInterval = 1000;
 
+        this.mouse = {
+            x: undefined,
+            y: undefined,
+            pressed: false
+        }
+
         window.addEventListener('resize', e => {
             this.resize(e.target.innerWidth,
                 e.target.innerHeight);
+        });
+
+        window.addEventListener('mousedown', e => {
+            this.mouse.x = e.x;
+            this.mouse.y = e.y;
         });
     }
 
