@@ -3,8 +3,8 @@ export class Enemy {
         this.game = game;
         this.width = 50;
         this.height = 50;
-        this.x = Math.random() * this.game.width;
-        this.y = -this.height;
+        this.x;
+        this.y;
         this.speedX = 0;
         this.speedY = Math.random() * 4 + 1;
         this.free = true;
