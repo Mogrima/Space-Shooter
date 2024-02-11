@@ -37,7 +37,7 @@ export class Game {
     }
 
     createEnemyPool() {
-        for (let i = 0; i < this.numberOfEnemies; i++) {
+        for (let i = 0; i < this.numberOfenemies; i++) {
             this.enemyPool.push(new Enemy(this));
         }
     }
