@@ -23,6 +23,11 @@ export class Enemy {
     update() {
         if (!this.free) {
             if (this.y < 0) this.y += 5;
+            
+            if (this.x > this.game.width - this.width) {
+                this.x = this.game.width - this.width
+            }
+
             this.x += this.speedX;
             this.y += this.speedY;
 
