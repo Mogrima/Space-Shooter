@@ -34,6 +34,13 @@ export class Enemy {
                 this.x = this.game.width - this.width
             }
 
+            if (this.game.checkCollision(this, this.game.mouse)
+                && this.game.mouse.pressed) {
+                this.lives--;
+            }
+
+            if (!this.isAlive()) this.reset();
+
             this.x += this.speedX;
             this.y += this.speedY;
 
