@@ -22,6 +22,10 @@ export class Enemy {
         this.free = true;
     }
 
+    isAlive() {
+        return this.lives >= 1;
+    }
+
     update() {
         if (!this.free) {
             if (this.y < 0) this.y += 5;
