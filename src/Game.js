@@ -59,8 +59,9 @@ export class Game {
         this.canvas.height = height;
         this.width = width;
         this.height = height;
-        this.ctx.fillStyle = 'green';
-        this.ctx.font = '50px Bangers';
+        this.ctx.fillStyle = 'white';
+        this.ctx.strokeStyle = 'white';
+        this.ctx.font = '30px Bangers';
         this.ctx.textAlign = 'center';
         this.ctx.textBaseline = 'middle';
     }
