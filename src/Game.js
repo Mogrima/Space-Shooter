@@ -22,8 +22,8 @@ export class Game {
         this.resize(window.innerWidth, window.innerHeight);
     }
 
-    render(context) {
-        this.ctx.fillRect(100, 100, 200, 200);
+    render(deltaTime) {
+
     }
 
     resize(width, height) {
