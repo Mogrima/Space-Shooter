@@ -25,7 +25,11 @@ export class Game {
     }
 
     render(deltaTime) {
-        this.handleEnemies(deltaTime)
+        this.handleEnemies(deltaTime);
+        this.enemyPool.forEach(enemy => {
+            enemy.draw();
+            enemy.update();
+        });
     }
 
     resize(width, height) {
