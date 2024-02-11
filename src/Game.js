@@ -19,7 +19,8 @@ export class Game {
             y: undefined,
             width: 1,
             height: 1,
-            pressed: false
+            pressed: false,
+            fired: false
         }
 
         window.addEventListener('resize', e => {
@@ -31,6 +32,7 @@ export class Game {
             this.mouse.x = e.x;
             this.mouse.y = e.y;
             this.mouse.pressed = true;
+            this.mouse.fired = false;
         });
 
         window.addEventListener('mouseup', e => {

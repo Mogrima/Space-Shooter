@@ -35,7 +35,8 @@ export class Enemy {
             }
 
             if (this.game.checkCollision(this, this.game.mouse)
-                && this.game.mouse.pressed) {
+                && this.game.mouse.pressed && !this.game.mouse.fired) {
+                this.game.mouse.fired = true;
                 this.lives--;
             }
 
