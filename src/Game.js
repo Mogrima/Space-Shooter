@@ -10,6 +10,7 @@ export class Game {
 
         this.enemyPool = [];
         this.numberOfenemies = 50;
+        this.createEnemyPool();
 
         window.addEventListener('resize', e => {
             this.resize(e.target.innerWidth,
