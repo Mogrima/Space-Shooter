@@ -25,7 +25,7 @@ export class Game {
     }
 
     render(deltaTime) {
-
+        this.handleEnemies(deltaTime)
     }
 
     resize(width, height) {
@@ -45,6 +45,17 @@ export class Game {
     getEnemy() {
         for (let i = 0; i < this.enemyPool.length; i++) {
             if (this.enemyPool[i].free) return this.enemyPool[i];
+        }
+    }
+
+    handleEnemies(deltaTime) {
+        if (this.enemyTimer < this.enemyInterval) {
+            this.enemyTimer += deltaTime;
+        } else {
+            this.enemyTimer = 0;
+            const enemy = this.getEnemy();
+            if (enemy) enemy.start();
+
         }
     }
 }
