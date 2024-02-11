@@ -17,6 +17,8 @@ export class Game {
         this.mouse = {
             x: undefined,
             y: undefined,
+            width: 1,
+            height: 1,
             pressed: false
         }
 
