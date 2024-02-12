@@ -84,6 +84,7 @@ export class Game {
     }
 
     render(deltaTime) {
+        this.drawStatusText();
         this.handleEnemies(deltaTime);
         this.enemyPool.forEach(enemy => {
             enemy.draw();
@@ -101,6 +102,32 @@ export class Game {
         this.ctx.font = '30px Bangers';
         this.ctx.textAlign = 'center';
         this.ctx.textBaseline = 'middle';
+    }
+
+    drawStatusText() {
+        this.ctx.save();
+        this.ctx.shadowOffsetX = 2;
+        this.ctx.shadowOffsetY = 2;
+        this.ctx.shadowColor = 'black';
+        this.ctx.shadowBlur = 10;
+        this.ctx.textAlign = 'left';
+        this.ctx.fillStyle = '#08e8de';
+        this.ctx.fillText('Score: ' + this.score, 20, 40);
+        for (let i = 0; i < this.lives; i++) {
+            this.ctx.fillRect(20 + 15 * i, 60, 10, 25);
+        }
+        if (this.lives < 1 || this.score >= this.winningScore) {
+            this.triggerGameOver();
+        }
+        if (this.gameOver){
+            this.ctx.textAlign = 'center';
+            this.ctx.font = '80px Bangers';
+            this.ctx.fillText(this.message1, this.width * 0.5, this.height * 0.5 - 25);
+            this.ctx.font = '20px Bangers';
+            this.ctx.fillText(this.message2, this.width * 0.5, this.height * 0.5 + 25);
+            this.ctx.fillText(this.message3, this.width * 0.5, this.height * 0.5 + 50);
+        }
+        this.ctx.restore();
     }
 
     createEnemyPool() {
