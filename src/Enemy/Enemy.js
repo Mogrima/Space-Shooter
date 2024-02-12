@@ -38,10 +38,12 @@ export class Enemy {
                 && this.game.mouse.pressed && !this.game.mouse.fired) {
                 this.game.mouse.fired = true;
                 this.lives--;
-                this.game.score++;
             }
 
-            if (!this.isAlive()) this.reset();
+            if (!this.isAlive()) {
+                this.reset();
+                this.game.score++;
+            }
 
             this.x += this.speedX;
             this.y += this.speedY;
