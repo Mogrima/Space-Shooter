@@ -85,7 +85,7 @@ export class Game {
 
     render(deltaTime) {
         this.drawStatusText();
-        this.handleEnemies(deltaTime);
+        if (!this.gameOver) this.handleEnemies(deltaTime);
         this.enemyPool.forEach(enemy => {
             enemy.draw();
             enemy.update();
