@@ -68,6 +68,11 @@ export class Game {
         this.score = 0;
         this.lives = 10;
         this.gameOver = false;
+        this.enemyPool.forEach(enemy => { enemy.reset() });
+        for (let i = 0; i < 2; i++) {
+            const enemy = this.getEnemy();
+            if (enemy) enemy.start();
+        }
     }
 
     triggerGameOver() {
