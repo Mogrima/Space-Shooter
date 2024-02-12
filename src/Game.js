@@ -14,6 +14,8 @@ export class Game {
         this.enemyTimer = 0;
         this.enemyInterval = 1000;
 
+        this.score;
+
         this.mouse = {
             x: undefined,
             y: undefined,
@@ -57,6 +59,7 @@ export class Game {
 
     start() {
         this.resize(window.innerWidth, window.innerHeight);
+        this.score = 0;
     }
 
     render(deltaTime) {
