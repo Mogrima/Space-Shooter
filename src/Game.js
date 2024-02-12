@@ -19,6 +19,7 @@ export class Game {
         this.message1 = 'Run!';
         this.message2 = 'Or get eaten!';
         this.message3 = 'Press "ENTER" or "R" to start!';
+        this.crewImage = document.getElementById('crew');
         this.gameOver = true;
 
         this.mouse = {
@@ -83,7 +84,7 @@ export class Game {
     start() {
         this.resize(window.innerWidth, window.innerHeight);
         this.score = 0;
-        this.lives = 10;
+        this.lives = 15;
         this.gameOver = false;
         this.enemyPool.forEach(enemy => { enemy.reset() });
         for (let i = 0; i < 2; i++) {
@@ -144,7 +145,7 @@ export class Game {
         this.ctx.fillStyle = '#08e8de';
         this.ctx.fillText('Score: ' + this.score, 20, 40);
         for (let i = 0; i < this.lives; i++) {
-            this.ctx.fillRect(20 + 15 * i, 60, 10, 25);
+            this.ctx.drawImage(this.crewImage, 20 + 12 * i, 60, 15, 30);
         }
         if (this.lives < 1 || this.score >= this.winningScore) {
             this.triggerGameOver();
