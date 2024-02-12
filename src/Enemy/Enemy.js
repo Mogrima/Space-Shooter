@@ -5,8 +5,8 @@ export class Enemy {
         this.height = 50;
         this.x;
         this.y;
-        this.speedX = 0;
-        this.speedY = Math.random() * 4 + 1;
+        this.speedX;
+        this.speedY;
         this.lives;
         this.free = true;
     }
@@ -15,7 +15,6 @@ export class Enemy {
         this.free = false;
         this.x = Math.random() * this.game.width;
         this.y = -this.height;
-        this.lives = 2;
     }
 
     reset() {
