@@ -35,10 +35,16 @@ export class Game {
         this.resetButton.addEventListener('click', e => {
             this.start();
         });
+        this.fullScreenButton = document.getElementById('fullScreenButton');
+        this.fullScreenButton.addEventListener('click', e => {
+            this.toggleFullScreen();
+        });
 
         window.addEventListener('keyup', e => {
             if (e.key === 'Enter' || e.key.toLowerCase() === 'r') {
                 this.start();
+            } else if (e.key === ' ' || e.key.toLowerCase() === 'f') {
+                this.toggleFullScreen();
             }
         });
 
@@ -119,6 +125,14 @@ export class Game {
         this.ctx.textAlign = 'center';
         this.ctx.textBaseline = 'middle';
     }
+
+    toggleFullScreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
 
     drawStatusText() {
         this.ctx.save();
