@@ -6,7 +6,6 @@ export class Game {
         this.ctx = ctx;
         this.width = this.canvas.width;
         this.height = this.canvas.height;
-        this.start();
 
         this.enemyPool = [];
         this.numberOfenemies = 50;
@@ -14,13 +13,13 @@ export class Game {
         this.enemyTimer = 0;
         this.enemyInterval = 1000;
 
-        this.score;
+        this.score = 0;
         this.lives;
         this.winningScore = 3;
         this.message1 = 'Run!';
         this.message2 = 'Or get eaten!';
         this.message3 = 'Press "ENTER" or "R" to start!';
-        this.gameOver;
+        this.gameOver = true;
 
         this.mouse = {
             x: undefined,
@@ -30,6 +29,18 @@ export class Game {
             pressed: false,
             fired: false
         }
+
+        this.resize(window.innerWidth, window.innerHeight);
+        this.resetButton = document.getElementById('resetButton');
+        this.resetButton.addEventListener('click', e => {
+            this.start();
+        });
+
+        window.addEventListener('keyup', e => {
+            if (e.key === 'Enter' || e.key.toLowerCase() === 'r') {
+                this.start();
+            }
+        });
 
         window.addEventListener('resize', e => {
             this.resize(e.target.innerWidth,
