@@ -16,6 +16,8 @@ export class Game {
 
         this.score;
         this.lives;
+        this.winningScore = 3;
+        this.gameOver;
 
         this.mouse = {
             x: undefined,
@@ -62,6 +64,7 @@ export class Game {
         this.resize(window.innerWidth, window.innerHeight);
         this.score = 0;
         this.lives = 10;
+        this.gameOver = false;
     }
 
     render(deltaTime) {
