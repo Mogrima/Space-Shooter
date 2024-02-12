@@ -25,18 +25,20 @@ export class Enemy {
         return this.lives >= 1;
     }
 
+    hit() {
+        if (this.game.checkCollision(this, this.game.mouse)
+        && this.game.mouse.pressed && !this.game.mouse.fired) {
+        this.game.mouse.fired = true;
+        this.lives--;
+        }
+    }
+
     update() {
         if (!this.free) {
             if (this.y < 0) this.y += 5;
             
             if (this.x > this.game.width - this.width) {
                 this.x = this.game.width - this.width
-            }
-
-            if (this.game.checkCollision(this, this.game.mouse)
-                && this.game.mouse.pressed && !this.game.mouse.fired) {
-                this.game.mouse.fired = true;
-                this.lives--;
             }
 
             if (!this.isAlive()) {
