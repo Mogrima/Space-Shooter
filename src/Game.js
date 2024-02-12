@@ -1,4 +1,4 @@
-import { Enemy } from "./Enemy/Enemy.js";
+import { Beetlemorph } from "./Enemy/Beetlemorph.js";
 
 export class Game {
     constructor(canvas, ctx) {
@@ -163,7 +163,7 @@ export class Game {
 
     createEnemyPool() {
         for (let i = 0; i < this.numberOfenemies; i++) {
-            this.enemyPool.push(new Enemy(this));
+            this.enemyPool.push(new Beetlemorph(this));
         }
     }
 
