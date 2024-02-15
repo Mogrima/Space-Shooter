@@ -15,7 +15,7 @@ export class Game {
 
         this.score = 0;
         this.lives;
-        this.winningScore = 3;
+        this.winningScore = 20;
         this.message1 = 'Run!';
         this.message2 = 'Or get eaten!';
         this.message3 = 'Press "ENTER" or "R" to start!';
