@@ -1,12 +1,17 @@
 export class Enemy {
     constructor(game) {
         this.game = game;
+        this.spriteWidth = 100;
+        this.spriteHeight = 100;
         this.width = 50;
         this.height = 50;
         this.x;
         this.y;
         this.speedX;
         this.speedY;
+        this.frameX;
+        this.lastFrame;
+        this.frameY;
         this.lives;
         this.free = true;
     }
@@ -15,6 +20,8 @@ export class Enemy {
         this.free = false;
         this.x = Math.random() * this.game.width;
         this.y = -this.height;
+        this.frameX = 0;
+        this.frameY = Math.floor(Math.random() * 4);
     }
 
     reset() {
@@ -42,8 +49,11 @@ export class Enemy {
             }
 
             if (!this.isAlive()) {
-                this.reset();
-                this.game.score++;
+                this.frameX++;
+                if (this.frameX >= this.lastFrame) {
+                    this.reset();
+                }
+                if (!this.game.gameOver) this.game.score++;
             }
 
             this.x += this.speedX;
@@ -61,6 +71,11 @@ export class Enemy {
             this.game.ctx.strokeRect(this.x, this.y, this.width, this.height);
             this.game.ctx.fillText(this.lives, this.x + this.width * 0.5,
                 this.y + this.height * 0.5);
+            
+            this.game.ctx.drawImage(this.image,
+                this.frameX * this.spriteWidth, this.frameY * this.spriteHeight,
+                this.spriteWidth, this.spriteWidth,
+                this.x, this.y, this.width, this.height);
         }
     }
 }
