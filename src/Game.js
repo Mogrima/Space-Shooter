@@ -181,7 +181,12 @@ export class Game {
         this.ctx.fillStyle = '#08e8de';
         this.ctx.fillText('Score: ' + this.score, 20, 40);
         for (let i = 0; i < this.lives; i++) {
-            this.ctx.drawImage(this.crewImage, 20 + 12 * i, 60, 15, 30);
+            const w = 20;
+            const h = 45;
+            this.ctx.drawImage(this.crewImage,
+                w * this.crewMembers[i].frameX,
+                h * this.crewMembers[i].frameY,
+                w, h, 20 + 20 * i, 60, w, h);
         }
         if (this.lives < 1 || this.score >= this.winningScore) {
             this.triggerGameOver();
