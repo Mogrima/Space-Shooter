@@ -13,6 +13,8 @@ export class Enemy {
         this.frameX;
         this.lastFrame;
         this.frameY;
+        this.minFrame;
+        this.maxFrame;
         this.lives;
         this.free = true;
     }
