@@ -1,4 +1,5 @@
 import { Beetlemorph } from "./Enemy/Beetlemorph.js";
+import { Lobstermorph } from "./Enemy/Lobstermorph.js";
 
 export class Game {
     constructor(canvas, ctx) {
@@ -186,7 +187,12 @@ export class Game {
 
     createEnemyPool() {
         for (let i = 0; i < this.numberOfenemies; i++) {
-            this.enemyPool.push(new Beetlemorph(this));
+            const randomNumber = Math.random();
+            if (randomNumber < 0.8) {
+                this.enemyPool.push(new Lobstermorph(this));
+            } else {
+                this.enemyPool.push(new Beetlemorph(this));
+            }
         }
     }
 
