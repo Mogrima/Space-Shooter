@@ -21,6 +21,7 @@ export class Game {
         this.message2 = 'Or get eaten!';
         this.message3 = 'Press "ENTER" or "R" to start!';
         this.crewImage = document.getElementById('crew');
+        this.crewMembers = [];
         this.gameOver = true;
 
         this.spriteUpdate = false;
@@ -94,11 +95,22 @@ export class Game {
         this.resize(window.innerWidth, window.innerHeight);
         this.score = 0;
         this.lives = 15;
+        this.generateCrew();
         this.gameOver = false;
         this.enemyPool.forEach(enemy => { enemy.reset() });
         for (let i = 0; i < 2; i++) {
             const enemy = this.getEnemy();
             if (enemy) enemy.start();
+        }
+    }
+
+    generateCrew() {
+        this.crewMembers = [];
+        for (let i = 0; i < this.lives; i++) {
+            this.crewMembers.push({
+                frameX: Math.floor(Math.random() * 5),
+                frameY: Math.floor(Math.random() * 5)
+            });
         }
     }
 
