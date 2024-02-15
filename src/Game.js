@@ -22,6 +22,10 @@ export class Game {
         this.crewImage = document.getElementById('crew');
         this.gameOver = true;
 
+        this.spriteUpdate = false;
+        this.spriteTimer = 0;
+        this.spriteInterval = 150;
+
         this.mouse = {
             x: undefined,
             y: undefined,
@@ -93,6 +97,16 @@ export class Game {
         }
     }
 
+    handleSpriteTimer(deltaTime) {
+        if (this.spriteTimer < this.spriteInterval) {
+            this.spriteTimer += deltaTime;
+            this.spriteUpdate = false;
+        } else {
+            this.spriteUpdate = true;
+            this.spriteTimer = 0;
+        }
+    }
+
     triggerGameOver() {
         if (!this.gameOver) {
             this.gameOver = true;
@@ -107,6 +121,7 @@ export class Game {
     }
 
     render(deltaTime) {
+        this.handleSpriteTimer(deltaTime);
         this.drawStatusText();
         if (!this.gameOver) this.handleEnemies(deltaTime);
         this.enemyPool.forEach(enemy => {
