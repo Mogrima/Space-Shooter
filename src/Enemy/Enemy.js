@@ -3,8 +3,9 @@ export class Enemy {
         this.game = game;
         this.spriteWidth = 100;
         this.spriteHeight = 100;
-        this.width = 50;
-        this.height = 50;
+        this.spriteModifier = Math.random() * 0.4 + 0.8;
+        this.width = 50 * this.spriteModifier;
+        this.height = 50 * this.spriteModifier;
         this.x;
         this.y;
         this.speedX;
