@@ -26,6 +26,8 @@ export class Game {
         this.spriteTimer = 0;
         this.spriteInterval = 150;
 
+        this.debug = false;
+
         this.mouse = {
             x: undefined,
             y: undefined,
@@ -50,6 +52,8 @@ export class Game {
                 this.start();
             } else if (e.key === ' ' || e.key.toLowerCase() === 'f') {
                 this.toggleFullScreen();
+            }  else if (e.key.toLowerCase() === 'd') {
+                this.debug = !this.debug;
             }
         });
 
