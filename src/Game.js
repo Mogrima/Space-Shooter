@@ -124,9 +124,13 @@ export class Game {
         this.handleSpriteTimer(deltaTime);
         this.drawStatusText();
         if (!this.gameOver) this.handleEnemies(deltaTime);
+
+        for (let i = this.enemyPool.length - 1; i >= 0; i--) {
+            this.enemyPool[i].update(deltaTime)
+        }
+
         this.enemyPool.forEach(enemy => {
             enemy.draw();
-            enemy.update();
         });
     }
 
