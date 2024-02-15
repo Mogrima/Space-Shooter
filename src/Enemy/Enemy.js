@@ -49,11 +49,13 @@ export class Enemy {
             }
 
             if (!this.isAlive()) {
-                this.frameX++;
-                if (this.frameX >= this.lastFrame) {
-                    this.reset();
+                if (this.game.spriteUpdate) {
+                    this.frameX++;
+                    if (this.frameX >= this.lastFrame) {
+                        this.reset();
+                    }
+                    if (!this.game.gameOver) this.game.score++;
                 }
-                if (!this.game.gameOver) this.game.score++;
             }
 
             this.x += this.speedX;
