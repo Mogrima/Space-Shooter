@@ -106,6 +106,7 @@ export class Game {
             const enemy = this.getEnemy();
             if (enemy) enemy.start();
         }
+        this.audio.newgame.play();
     }
 
     generateCrew() {
@@ -134,9 +135,11 @@ export class Game {
             if (this.lives < 1) {
                 this.message1 = 'Argh!';
                 this.message2 = 'The crew was eaten!';
+                this.audio.play(this.audio.lose);
             } else if (this.score >= this.winningScore) {
                 this.message1 = 'Well done!';
                 this.message2 = 'You escaped the swarm!';
+                this.audio.play(this.audio.win);
             }
         }
     }
