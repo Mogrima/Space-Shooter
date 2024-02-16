@@ -15,7 +15,7 @@ export class Beetlemorph extends Enemy {
         super.start();
         this.frameY = Math.floor(Math.random() * 4);
         this.speedX = 0;
-        this.speedY = Math.random() * 4 + 1;
+        this.speedY = Math.random() * 3;
         this.lives = this.maxLives;
         this.lastFrame = 3;
     }
