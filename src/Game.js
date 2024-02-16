@@ -1,6 +1,7 @@
 import { Beetlemorph } from "./Enemy/Beetlemorph.js";
 import { Lobstermorph } from "./Enemy/Lobstermorph.js";
 import { Phantommorph } from "./Enemy/Phantommorph.js";
+import { AudioControl } from "./AudioControle.js";
 
 export class Game {
     constructor(canvas, ctx) {
@@ -30,6 +31,8 @@ export class Game {
         this.spriteInterval = 150;
 
         this.debug = false;
+
+        this.audio = new AudioControl();
 
         this.mouse = {
             x: undefined,
