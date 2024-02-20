@@ -4,8 +4,12 @@
   "description": "Космический шутер, адаптированный как под ПК, так и для мобильных устройств",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint"
   },
   "author": "Mogrima",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^8.56.0"
+  }
 }
