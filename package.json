@@ -1,0 +1,11 @@
+{
+  "name": "space-shooter",
+  "version": "1.0.0",
+  "description": "Космический шутер, адаптированный как под ПК, так и для мобильных устройств",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mogrima",
+  "license": "ISC"
+}
