@@ -40,7 +40,7 @@ export class Phasing extends EnemyState {
             this.game.audio.play(this.game.audio.slide);
         }
     }
-    
+
 }
 
 export class Imploding extends EnemyState {
@@ -51,10 +51,10 @@ export class Imploding extends EnemyState {
         this.game.audio.play(this.game.audio.boomSounds[
             Math.floor(Math.random() * 4)
         ]);
-        
+
     }
 
     update() {
     }
-    
+
 }

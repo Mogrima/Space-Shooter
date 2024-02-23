@@ -14,12 +14,12 @@ export class AudioControl {
             this.boom1,
             this.boom2,
             this.boom3,
-            this.boom4
+            this.boom4,
         ];
     }
 
     play(audio) {
         audio.currentTime = 0;
         audio.play();
-        }
+    }
 }

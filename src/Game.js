@@ -1,7 +1,7 @@
-import { Beetlemorph } from "./Enemy/Beetlemorph.js";
-import { Lobstermorph } from "./Enemy/Lobstermorph.js";
-import { Phantommorph } from "./Enemy/Phantommorph.js";
-import { AudioControl } from "./AudioControle.js";
+import { Beetlemorph } from './Enemy/Beetlemorph.js';
+import { Lobstermorph } from './Enemy/Lobstermorph.js';
+import { Phantommorph } from './Enemy/Phantommorph.js';
+import { AudioControl } from './AudioControle.js';
 
 export class Game {
     constructor(canvas, ctx) {
@@ -40,8 +40,8 @@ export class Game {
             width: 1,
             height: 1,
             pressed: false,
-            fired: false
-        }
+            fired: false,
+        };
 
         this.resize(window.innerWidth, window.innerHeight);
         this.resetButton = document.getElementById('resetButton');
@@ -58,7 +58,7 @@ export class Game {
                 this.start();
             } else if (e.key === ' ' || e.key.toLowerCase() === 'f') {
                 this.toggleFullScreen();
-            }  else if (e.key.toLowerCase() === 'd') {
+            } else if (e.key.toLowerCase() === 'd') {
                 this.debug = !this.debug;
             }
         });
@@ -101,7 +101,9 @@ export class Game {
         this.lives = 15;
         this.generateCrew();
         this.gameOver = false;
-        this.enemyPool.forEach(enemy => { enemy.reset() });
+        this.enemyPool.forEach(enemy => {
+            enemy.reset();
+        });
         for (let i = 0; i < 2; i++) {
             const enemy = this.getEnemy();
             if (enemy) enemy.start();
@@ -114,7 +116,7 @@ export class Game {
         for (let i = 0; i < this.lives; i++) {
             this.crewMembers.push({
                 frameX: Math.floor(Math.random() * 5),
-                frameY: Math.floor(Math.random() * 5)
+                frameY: Math.floor(Math.random() * 5),
             });
         }
     }
@@ -150,7 +152,7 @@ export class Game {
         if (!this.gameOver) this.handleEnemies(deltaTime);
 
         for (let i = this.enemyPool.length - 1; i >= 0; i--) {
-            this.enemyPool[i].update(deltaTime)
+            this.enemyPool[i].update(deltaTime);
         }
 
         this.enemyPool.forEach(enemy => {
@@ -172,11 +174,11 @@ export class Game {
 
     toggleFullScreen() {
         if (!document.fullscreenElement) {
-          document.documentElement.requestFullscreen();
+            document.documentElement.requestFullscreen();
         } else if (document.exitFullscreen) {
-          document.exitFullscreen();
+            document.exitFullscreen();
         }
-      }
+    }
 
     drawStatusText() {
         this.ctx.save();
@@ -214,7 +216,7 @@ export class Game {
             const randomNumber = Math.random();
             if (randomNumber < 0.3) {
                 this.enemyPool.push(new Beetlemorph(this));
-               
+
             } else if (randomNumber < 0.7) {
                 this.enemyPool.push(new Lobstermorph(this));
             } else {

@@ -28,7 +28,7 @@ export class Lobstermorph extends Enemy {
                 this.maxFrame = 3;
             } else if (this.lives === 1) {
                 this.maxFrame = 7;
-            } 
+            }
             if (this.isAlive) {
                 this.hit();
                 if (this.frameX < this.maxFrame && this.game.spriteUpdate) {

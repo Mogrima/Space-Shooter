@@ -32,7 +32,7 @@ export class Phantommorph extends Enemy {
     handleFrames() {
         if (this.game.spriteUpdate) {
             if (this.frameX < this.maxFrame) {
-                this.frameX++
+                this.frameX++;
             } else {
                 this.frameX = this.minFrame;
             }

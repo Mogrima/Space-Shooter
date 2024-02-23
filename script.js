@@ -9,7 +9,7 @@ window.addEventListener('load', function() {
     canvas.height = window.innerHeight;
 
     const game = new Game(canvas, ctx);
-    
+
     let lastTime = 0;
     function animate(timeStamp) {
         const deltaTime = timeStamp - lastTime;
@@ -18,6 +18,6 @@ window.addEventListener('load', function() {
         game.render(deltaTime);
         requestAnimationFrame(animate);
     }
-    
+
     requestAnimationFrame(animate);
 });
