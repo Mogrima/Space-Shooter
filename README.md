@@ -66,6 +66,6 @@ Fonts
 Unlicense
 
 [1]:Assets/Preview/rceDqKaU3nY.jpg
-[2]:Assets/Preview/phantomorph-preview.png
+[2]:Assets/Preview/phantom-preview.png
 [3]:Assets/Preview/lobstermorph-preview.png
 [4]:Assets/Preview/beetlemorph-preview.png
